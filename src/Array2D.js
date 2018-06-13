@@ -138,6 +138,7 @@ module.exports = class Array2D {
   }
 
   /**
+   * clearPosition - Clear given position
    *
    * @param {type} x x(column) position for in the 2d array
    * @param {type} y y y(row) position for in the 2d array
