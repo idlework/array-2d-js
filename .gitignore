@@ -1,5 +1,6 @@
 # Local #
 #########
+.nyc_output/
 
 # Development #
 ###############
