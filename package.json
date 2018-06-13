@@ -4,8 +4,11 @@
   "description": "A two-dimensional array is actually nothing more than an array of arrays. Array2D is a class that makes it easier to create a two-dimensional array, add items, manipulate items, or remove items.",
   "main": "src/Array2D.js",
   "scripts": {
+    "precommit": "npm test",
+    "prepush": "npm test",
     "eslint": "eslint src/Array2D.js",
-    "test": "nyc ava test/Array2D.js --verbose"
+    "ava": "nyc ava test/Array2D.js --verbose",
+    "test": "npm run eslint; npm run ava"
   },
   "keywords": [
     "array",
@@ -25,6 +28,7 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.1.0",
+    "husky": "^0.14.3",
     "nyc": "^12.0.2"
   }
 }
