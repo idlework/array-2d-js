@@ -4,6 +4,7 @@
   "description": "A two-dimensional array is actually nothing more than an array of arrays. Array2D is a class that makes it easier to create a two-dimensional array, add items, manipulate items, or remove items.",
   "main": "src/Array2D.js",
   "scripts": {
+    "eslint": "eslint src/Array2D.js",
     "test": "nyc ava test/Array2D.js --verbose"
   },
   "keywords": [
