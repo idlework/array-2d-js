@@ -22,7 +22,7 @@ module.exports = class Array2D {
    * @return {array} Returns the column.
    */
   getColumn (position) {
-    return this._array2D[position]
+    return this.array2D[position]
   }
 
   /**
@@ -31,7 +31,7 @@ module.exports = class Array2D {
    * @param {number} position Position for the column.
    */
   addColumn (position) {
-    this._array2D.splice(position, 0, Array(this.height))
+    this.array2D.splice(position, 0, Array(this.height))
   }
 
   /**
@@ -40,7 +40,7 @@ module.exports = class Array2D {
    * @param {number} position Position for the column.
    */
   removeColumn (position) {
-    this._array2D.splice(position, 1)
+    this.array2D.splice(position, 1)
   }
 
   /**
@@ -50,7 +50,7 @@ module.exports = class Array2D {
    * @param {function} f Fill function for the column.
    */
   fillColumn (position, f) {
-    // @TODO: find out why you can't use forEach() on an array that contains empty arrays, use es3 style for now.
+    // TODO: find out why you can't use forEach() on an array that contains empty arrays, use es3 style for now.
     for (let i = 0; i < this.height; i++) {
       this.fillPosition(position, i, f(position, i))
     }
@@ -73,7 +73,7 @@ module.exports = class Array2D {
    * @return {array} Returns the row.
    */
   getRow (position) {
-    return this._array2D.map(column => column[position])
+    return this.array2D.map(column => column[position])
   }
 
   /**
@@ -82,7 +82,7 @@ module.exports = class Array2D {
    * @param {number} position Position for the row.
    */
   addRow (position) {
-    this._array2D.forEach(column => column.splice(position, 0, undefined))
+    this.array2D.forEach(column => column.splice(position, 0, undefined))
   }
 
   /**
@@ -91,7 +91,7 @@ module.exports = class Array2D {
    * @param {number} position Position for the row.
    */
   removeRow (position) {
-    this._array2D.forEach(column => column.splice(position, 1))
+    this.array2D.forEach(column => column.splice(position, 1))
   }
 
   /**
@@ -123,7 +123,7 @@ module.exports = class Array2D {
    * @return {any} returns the item
    */
   getPosition (x, y) {
-    return this._array2D[x][y]
+    return this.array2D[x][y]
   }
 
   /**
@@ -134,7 +134,7 @@ module.exports = class Array2D {
    * @param {any} item item for in the 2d array
    */
   fillPosition (x, y, item) {
-    this._array2D[x][y] = item
+    this.array2D[x][y] = item
   }
 
   /**
@@ -144,14 +144,30 @@ module.exports = class Array2D {
    * @param {type} y y y(row) position for in the 2d array
    */
   clearPosition (x, y) {
-    this._array2D[x][y] = undefined
+    this.array2D[x][y] = undefined
+  }
+
+  /**
+   * findPosition - Find the postion for given item
+   *
+   * @param  {any} item item fot wich to find position
+   * @return {any} return position for item
+   */
+  findPosition (item) {
+    let position
+    this.forEach((currentItem, { x, y }) => {
+      if (Object.is(currentItem, item)) {
+        position = { x, y }
+      }
+    })
+    return position
   }
 
   /**
    * forEach - Executes a provided function once for each 2d array element.
    */
   forEach (f) {
-    // @TODO: find out why you can't use forEach() on an array that contains empty arrays, use es3 style for now.
+    // TODO: find out why you can't use forEach() on an array that contains empty arrays, use es3 style for now.
     for (let y = 0; y < this.height; y++) {
       for (let x = 0; x < this.width; x++) {
         f(this.getPosition(x, y), { x, y })

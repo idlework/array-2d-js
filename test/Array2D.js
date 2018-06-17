@@ -55,6 +55,15 @@ test('forEach loop over every item', t => {
   })
 })
 
+test('find item in 2d array at position 9, 9', t => {
+  const array2D = new Array2D(10, 10)
+  array2D.fillPosition(9, 9, 'x')
+  const position = array2D.findPosition('x')
+  t.truthy(position)
+  t.is(position.x, 9)
+  t.is(position.y, 9)
+})
+
 test('get empty column at position 2', t => {
   const array2D = new Array2D(10, 10)
   const column = array2D.getColumn(2)
