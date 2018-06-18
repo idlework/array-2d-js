@@ -20,7 +20,7 @@
     "Two-dimensional"
   ],
   "author": "Johan Haneveld",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "ava": "^1.0.0-beta.5.1",
     "documentation": "^8.0.0",
