@@ -1,9 +1,9 @@
 module.exports = class Array2D {
   /**
-   * constructor - intitialize Array2D class.
+   * Intitialize Array2D class.
    *
-   * @param {number} width  number corresponding with the width(column count) of the 2d array.
-   * @param {number} height number corresponding with the height(row count) of the 2d array.
+   * @param {Number} width - Number corresponding with the width(column count) of the 2d array.
+   * @param {Number} height - Number corresponding with the height(row count) of the 2d array.
    */
   constructor (width, height) {
     this._width = width
@@ -16,38 +16,38 @@ module.exports = class Array2D {
   }
 
   /**
-   * getColumn - Return the column of the given position.
+   * Return the column of the given position.
    *
-   * @param {number} position Position for the column.
-   * @return {array} Returns the column.
+   * @param {Number} position - Position for the column.
+   * @return {Array} - Returns the column.
    */
   getColumn (position) {
     return this.array2D[position]
   }
 
   /**
-   * addColumn - Add the column at the given position.
+   * Add the column at the given position.
    *
-   * @param {number} position Position for the column.
+   * @param {Number} position - Position for the column.
    */
   addColumn (position) {
     this.array2D.splice(position, 0, Array(this.height))
   }
 
   /**
-   * removeColumn - Remove the column at the given position.
+   * Remove the column at the given position.
    *
-   * @param {number} position Position for the column.
+   * @param {Number} position - Position for the column.
    */
   removeColumn (position) {
     this.array2D.splice(position, 1)
   }
 
   /**
-   * fillColumn - Executes the provided function once for each array element for column at given position.
+   * Executes the provided function once for each array element for column at given position.
    *
-   * @param {number} position Position for the column.
-   * @param {function} f Fill function for the column.
+   * @param {Number} position - Position for the column.
+   * @param {function} f - Fill function for the column.
    */
   fillColumn (position, f) {
     // TODO: find out why you can't use forEach() on an array that contains empty arrays, use es3 style for now.
@@ -57,9 +57,9 @@ module.exports = class Array2D {
   }
 
   /**
-   * clearColumn - Clear the column at the given position.
+   * Clear the column at the given position.
    *
-   * @param {number} position Position for the column.
+   * @param {Number} position - Position for the column.
    */
   clearColumn (position) {
     const column = this.getColumn(position)
@@ -67,38 +67,38 @@ module.exports = class Array2D {
   }
 
   /**
-   * getRow - Return the row of the given position.
+   * Get the row of the given position.
    *
-   * @param {number} position Position for the row.
-   * @return {array} Returns the row.
+   * @param {Number} position - Position for the row.
+   * @return {Array} - Returns the row.
    */
   getRow (position) {
     return this.array2D.map(column => column[position])
   }
 
   /**
-   * addRow - Add the row at the given position.
+   * Add the row at the given position.
    *
-   * @param {number} position Position for the row.
+   * @param {Number} position - Position for the row.
    */
   addRow (position) {
     this.array2D.forEach(column => column.splice(position, 0, undefined))
   }
 
   /**
-   * removeRow - Remove the row at the given position.
+   * Remove the row at the given position.
    *
-   * @param {number} position Position for the row.
+   * @param {Number} position - Position for the row.
    */
   removeRow (position) {
     this.array2D.forEach(column => column.splice(position, 1))
   }
 
   /**
-   * fillRow - Executes the provided function once for each array element for row at given position.
+   * Executes the provided function once for each array element for row at given position.
    *
-   * @param {number} position Position for the row.
-   * @param {function} f Fill function for the row.
+   * @param {Number} position - Position for the row.
+   * @param {function} f - Fill function for the row.
    */
   fillRow (position, f) {
     const row = this.getRow(position)
@@ -106,9 +106,9 @@ module.exports = class Array2D {
   }
 
   /**
-   * clearRow - Clear the row at the given position.
+   * Clear the row at the given position.
    *
-   * @param  {number} position Position for the row.
+   * @param {Number} position - Position for the row.
    */
   clearRow (position) {
     const row = this.getRow(position)
@@ -116,42 +116,42 @@ module.exports = class Array2D {
   }
 
   /**
-   * getPosition - Return the item of the given position.
+   * Get the item of the given position.
    *
-   * @param {number} x x(column) position for in the 2d array
-   * @param {number} y y(row) position for in the 2d array
-   * @return {any} returns the item
+   * @param {Number} x - Column position for in the 2d array.
+   * @param {Number} y - Row position for in the 2d array.
+   * @return {any} - Returns the item.
    */
   getPosition (x, y) {
     return this.array2D[x][y]
   }
 
   /**
-   * fillPosition - Fill position with item
+   * Fill position with item
    *
-   * @param {number} x x(column) position for in the 2d array
-   * @param {number} y y(row) position for in the 2d array
-   * @param {any} item item for in the 2d array
+   * @param {Number} x - Column position for in the 2d array.
+   * @param {Number} y - Row position for in the 2d array.
+   * @param {any} item - Item for in the 2d array.
    */
   fillPosition (x, y, item) {
     this.array2D[x][y] = item
   }
 
   /**
-   * clearPosition - Clear given position
+   * Clear given position
    *
-   * @param {type} x x(column) position for in the 2d array
-   * @param {type} y y y(row) position for in the 2d array
+   * @param {Number} x - Column position for in the 2d array.
+   * @param {Number} y - Row position for in the 2d array.
    */
   clearPosition (x, y) {
     this.array2D[x][y] = undefined
   }
 
   /**
-   * findPosition - Find the postion for given item
+   * Find the postion for given item
    *
-   * @param  {any} item item fot wich to find position
-   * @return {any} return position for item
+   * @param {any} item - Item for which you want to find the position.
+   * @return {any} - Item position.
    */
   findPosition (item) {
     let position
@@ -164,7 +164,9 @@ module.exports = class Array2D {
   }
 
   /**
-   * forEach - Executes a provided function once for each 2d array element.
+   * Executes a provided function once for each 2d array element.
+   *
+   * @param {function} f - Fill function for the 2d array.
    */
   forEach (f) {
     // TODO: find out why you can't use forEach() on an array that contains empty arrays, use es3 style for now.
@@ -176,27 +178,27 @@ module.exports = class Array2D {
   }
 
   /**
-   * get array2D - Returns the 2d array
+   * Returns the 2d array.
    *
-   * @return {Array2D}  Returns the 2d array
+   * @return {Array2D} - Returns the 2d array.
    */
   get array2D () {
     return this._array2D
   }
 
   /**
-   * get width - return the width(column count) of the 2d array
+   * return the width(column count) of the 2d array.
    *
-   * @return {number} return the width of the 2d array
+   * @return {Number} - Returns the width of the 2d array.
    */
   get width () {
     return this.array2D.length
   }
 
   /**
-   * get height - return the height(row count) of the 2d array
+   * return the height(row count) of the 2d array.
    *
-   * @return {number} return the height of the 2d array
+   * @return {Number} - Returns the height of the 2d array.
    */
   get height () {
     return this.array2D[0].length
