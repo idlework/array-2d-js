@@ -4,6 +4,7 @@
 
 # Development #
 ###############
+*.code-workspace
 *.sublime-project
 *.sublime-workspace
 *.zip
