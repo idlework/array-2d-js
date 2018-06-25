@@ -1,7 +1,7 @@
 {
   "name": "array2d",
   "version": "1.0.0",
-  "description": "A two-dimensional array is actually nothing more than an array of arrays. Array2D is a class that makes it easier to create a two-dimensional array, add items, manipulate items, or remove items.",
+  "description": "Array2D is an auxiliary tool to create, manage and manipulate 2d arrays.",
   "main": "src/Array2D.js",
   "scripts": {
     "precommit": "npm test",
@@ -21,6 +21,14 @@
   ],
   "author": "Johan Haneveld",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/idlework/array-2d-js/issues"
+  },
+  "homepage": "https://github.com/idlework/array-2d-js#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idlework/array-2d-js.git"
+  },
   "devDependencies": {
     "ava": "^1.0.0-beta.5.1",
     "documentation": "^8.0.0",
