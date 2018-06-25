@@ -1,5 +1,5 @@
 # Array2D
-Array2D is an auxiliary tool to create, manage and manipulate 2d arrays.
+Array2D is an auxiliary tool to create, manage and manipulate 2d arrays. I made this component to help me develop board game prototypes. If you want to use this component, please! If you want to modify or expand this component, you are welcome to do so. See notes in contribution.
 
 ## Installation
 ```shell
