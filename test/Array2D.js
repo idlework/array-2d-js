@@ -143,3 +143,23 @@ test('clear row at position 5', t => {
   row = array2D.getRow(5)
   row.forEach(item => (t.falsy(item)))
 })
+
+test('condense 10 x 10 2d array to 1 x 1', t => {
+  const array2D = new Array2D(10, 10)
+  array2D.fillPosition(5, 5, 'x')
+  array2D.condense()
+  t.is(array2D.width, 1)
+  t.is(array2D.height, 1)
+})
+
+test('condense 10 x 10 2d array to 3 x 3', t => {
+  const array2D = new Array2D(10, 10)
+  array2D.fillPosition(5, 5, 'x')
+  array2D.fillPosition(5, 6, 'x')
+  array2D.fillPosition(5, 7, 'x')
+  array2D.fillPosition(6, 5, 'x')
+  array2D.fillPosition(7, 5, 'x')
+  array2D.condense()
+  t.is(array2D.width, 3)
+  t.is(array2D.height, 3)
+})

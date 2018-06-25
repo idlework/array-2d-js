@@ -87,6 +87,10 @@ Clear the column at the given position.
 
 -   `position` **[Number][1]** Position for the column.
 
+## condenseColumns
+
+Condense the 2d array to the minimum by removing all the empty columns on the outside. This process is irreversible.
+
 ### getRow
 
 Get the row of the given position.
@@ -129,6 +133,10 @@ Clear the row at the given position.
 #### Parameters
 
 -   `position` **[Number][1]** Position for the row.
+
+## condenseRows
+
+Condense the 2d array to the minimum by removing all the empty rows on the outside. This process is irreversible.
 
 ### getPosition
 
@@ -177,6 +185,10 @@ Executes a provided function once for each 2d array element.
 #### Parameters
 
 -   `f` **[function][3]** Fill function for the 2d array.
+
+## condense
+
+Condense the 2d array to the minimum by removing all the empty rows and columns on the outside. This process is irreversible.
 
 ### array2D
 

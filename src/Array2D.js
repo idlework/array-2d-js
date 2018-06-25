@@ -67,6 +67,23 @@ module.exports = class Array2D {
   }
 
   /**
+   * Condense the 2d array to the minimum by removing all the empty columns on the outside. This process is irreversible.
+   */
+  condenseColumns () {
+    let index = 0
+    let isRemoving = true
+    while (isRemoving) {
+      const column = this.getColumn(index)
+
+      const isEmpty = column.every(item => item === undefined)
+      isEmpty && this.removeColumn(index)
+
+      !isEmpty && index++
+      index >= this.width && (isRemoving = false)
+    }
+  }
+
+  /**
    * Get the row of the given position.
    *
    * @param {Number} position - Position for the row.
@@ -113,6 +130,23 @@ module.exports = class Array2D {
   clearRow (position) {
     const row = this.getRow(position)
     row.forEach((item, index) => this.clearPosition(index, position))
+  }
+
+  /**
+   * Condense the 2d array to the minimum by removing all the empty rows on the outside. This process is irreversible.
+   */
+  condenseRows () {
+    let index = 0
+    let isRemoving = true
+    while (isRemoving) {
+      const row = this.getRow(index)
+
+      const isEmpty = row.every(item => item === undefined)
+      isEmpty && this.removeRow(index)
+
+      !isEmpty && index++
+      index >= this.height && (isRemoving = false)
+    }
   }
 
   /**
@@ -175,6 +209,14 @@ module.exports = class Array2D {
         f(this.getPosition(x, y), { x, y })
       }
     }
+  }
+
+  /**
+   * Condense the 2d array to the minimum by removing all the empty rows and columns on the outside. This process is irreversible.
+   */
+  condense () {
+    this.condenseColumns()
+    this.condenseRows()
   }
 
   /**
