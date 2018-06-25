@@ -8,7 +8,7 @@ $ npm i Array2D --save
 
 ## Usage
 ```javascript
-import Array2D from 'Array2D'
+import Array2D from 'array-2d-js'
 
 export default class Map extends Array2D {
   constructor (width, height) {
@@ -20,7 +20,15 @@ export default class Map extends Array2D {
 *or*
 
 ```javascript
-import Array2D from 'Array2D'
+import Array2D from 'array-2d-js'
+
+const array2D = new Array2D(10, 10)
+```
+
+*or*
+
+```javascript
+const Array2D = require("array-2d-js")
 
 const array2D = new Array2D(10, 10)
 ```
