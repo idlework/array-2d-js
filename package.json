@@ -1,5 +1,5 @@
 {
-  "name": "array2d",
+  "name": "array-2d-js",
   "version": "1.0.0",
   "description": "Array2D is an auxiliary tool to create, manage and manipulate 2d arrays.",
   "main": "src/Array2D.js",
